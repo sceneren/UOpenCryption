@@ -38,7 +38,7 @@ dependencies {
 
 publish {
     userOrg = 'scene'
-    groupId = 'wiki.scene.eth.wallet'
+    groupId = 'wiki.scene.cryption'
     artifactId = 'cryption'
     publishVersion = '0.0.1'
     desc = 'android Encryption method'
