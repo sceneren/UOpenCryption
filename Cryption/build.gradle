@@ -39,7 +39,7 @@ dependencies {
 publish {
     userOrg = 'scene'
     groupId = 'wiki.scene.cryption'
-    artifactId = 'cryption'
+    artifactId = 'Cryption'
     publishVersion = '0.0.1'
     desc = 'android Encryption method'
     website = 'https://gitee.com/scene/UOpenCryption'

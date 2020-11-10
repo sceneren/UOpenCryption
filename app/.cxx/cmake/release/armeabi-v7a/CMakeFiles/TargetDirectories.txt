@@ -1,3 +1,0 @@
-/Users/scene/Desktop/work space/UOpenCryption/app/.cxx/cmake/release/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-/Users/scene/Desktop/work space/UOpenCryption/app/.cxx/cmake/release/armeabi-v7a/CMakeFiles/edit_cache.dir
-/Users/scene/Desktop/work space/UOpenCryption/app/.cxx/cmake/release/armeabi-v7a/CMakeFiles/native-lib.dir

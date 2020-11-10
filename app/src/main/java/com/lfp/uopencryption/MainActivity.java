@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.swt.set.key.SwtKeyUtils;
+
 import wiki.scene.cryption.EncryptionManager;
 import wiki.scene.cryption.core.AbstractCoder;
 import wiki.scene.cryption.core.dsa.DSAKeyHelper;
@@ -96,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 国密SM2非对称加密算法，类似RAS，但是安全度以及效率上比之要高。
      */
     private void optSM2() {
+        Log.e("xx",SwtKeyUtils.getSM2PublicKey(true));
         String plainText = et_encryption.getText().toString();
         if (TextUtils.isEmpty(plainText)) {
             return;

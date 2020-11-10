@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/Users/scene/Desktop/work space/UOpenCryption/app/.cxx/cmake/release/x86",
-  "command": "/Users/scene/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/Users/scene/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/scene/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_lib_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -O2 -DNDEBUG  -fPIC   -o CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o -c \"/Users/scene/Desktop/work space/UOpenCryption/app/src/main/cpp/native-lib.cpp\"",
-  "file": "/Users/scene/Desktop/work space/UOpenCryption/app/src/main/cpp/native-lib.cpp"
-}
-]
