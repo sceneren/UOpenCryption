@@ -1,6 +1,5 @@
 package com.lfp.uopencryption;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -8,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.uopen.cryptionkit.EncryptionManager;
 import com.uopen.cryptionkit.core.AbstractCoder;
 import com.uopen.cryptionkit.core.dsa.DSAKeyHelper;
