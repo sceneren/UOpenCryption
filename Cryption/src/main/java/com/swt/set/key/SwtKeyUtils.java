@@ -5,5 +5,8 @@ public class SwtKeyUtils {
         System.loadLibrary("KeyLib");
     }
 
-    public static native String getSM2PublicKey(Boolean debugModel);
+    public static native String getSM2PublicKey();
+
+    public static native String getSM2TestPublicKey();
+
 }

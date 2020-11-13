@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bt_sha1.setOnClickListener(this);
         bt_md5 = findViewById(R.id.bt_md5);
         bt_md5.setOnClickListener(this);
+        TextView tvPrivateKey = findViewById(R.id.tvPrivateKey);
+        tvPrivateKey.setText("debug:" + SwtKeyUtils.getSM2TestPublicKey() + "\n"
+                + "release:" + SwtKeyUtils.getSM2PublicKey());
+
     }
 
     @Override
@@ -98,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 国密SM2非对称加密算法，类似RAS，但是安全度以及效率上比之要高。
      */
     private void optSM2() {
-        Log.e("xx",SwtKeyUtils.getSM2PublicKey(true));
+        Log.e("xx", SwtKeyUtils.getSM2PublicKey());
         String plainText = et_encryption.getText().toString();
         if (TextUtils.isEmpty(plainText)) {
             return;
