@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.swt.set.key.SwtKeyUtils;
 
+import java.util.logging.Logger;
+
 import wiki.scene.cryption.EncryptionManager;
 import wiki.scene.cryption.core.AbstractCoder;
 import wiki.scene.cryption.core.dsa.DSAKeyHelper;
@@ -102,31 +104,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 国密SM2非对称加密算法，类似RAS，但是安全度以及效率上比之要高。
      */
     private void optSM2() {
-        Log.e("xx", SwtKeyUtils.getSM2PublicKey());
-        String plainText = et_encryption.getText().toString();
-        if (TextUtils.isEmpty(plainText)) {
-            return;
-        }
-        long startTime = System.currentTimeMillis();
+        String privateKeyStr = SwtKeyUtils.getSM2PublicKey();
+        Log.e("xx", privateKeyStr);
+        String str="{\"headerInfo\":{\"areaType\":\"1\",\"osType\":1,\"token\":\"64acf01a30c2e80321a111036c32e3d0\",\"userId\":\"751185878482681856\"},\"params\":{}}";
+        String encodeStr = SM2Helper.getInstance().encode(str, privateKeyStr);
+
+//        long startTime = System.currentTimeMillis();
         AbstractCoder cipher = EncryptionManager.getCipher(EncryptionManager.Model.SM2);
-        //生成密钥对
-        String privateKeyHex = "";
-        String publicKeyHex = "";
-        Log.i("lfp", "privateKeyHex.length=" + privateKeyHex.length() + ",publicKeyHex.length=" + publicKeyHex.length());
-        try {
-            text_result.append("\nSM2加密: \n");
-            String cipherText = SM2Helper.getInstance().encode(plainText, publicKeyHex);
-            long encryEndTime = System.currentTimeMillis();
-            Log.i("lfp", "cipherText=" + cipherText);
-            text_result.append("密文:" + cipherText + "\n耗时：" + (encryEndTime - startTime) + "毫秒");
-            text_result.append("\n");
-            plainText = cipher.simpleDeCode(cipherText, privateKeyHex);
-            long dncryEndTime = System.currentTimeMillis();
-            text_result.append("解密: \n");
-            text_result.append("明文:" + plainText + "\n耗时：" + (dncryEndTime - encryEndTime) + "毫秒");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String decodeStr = cipher.simpleDeCode(encodeStr, "00890C3C4389AA3B23D48B2C62277727DCA7510879C534A205FCBF529ED1BD658D");
+        Log.e("加密:", encodeStr);
+        Log.e("解密:", decodeStr);
+//        //生成密钥对
+//        String privateKeyHex = "";
+//        String publicKeyHex = "";
+//        Log.i("lfp", "privateKeyHex.length=" + privateKeyHex.length() + ",publicKeyHex.length=" + publicKeyHex.length());
+//        try {
+//            text_result.append("\nSM2加密: \n");
+//            String cipherText = SM2Helper.getInstance().encode(plainText, publicKeyHex);
+//            long encryEndTime = System.currentTimeMillis();
+//            Log.i("lfp", "cipherText=" + cipherText);
+//            text_result.append("密文:" + cipherText + "\n耗时：" + (encryEndTime - startTime) + "毫秒");
+//            text_result.append("\n");
+//            plainText = cipher.simpleDeCode(cipherText, privateKeyHex);
+//            long dncryEndTime = System.currentTimeMillis();
+//            text_result.append("解密: \n");
+//            text_result.append("明文:" + plainText + "\n耗时：" + (dncryEndTime - encryEndTime) + "毫秒");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     /**

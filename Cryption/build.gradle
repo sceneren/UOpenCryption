@@ -33,14 +33,15 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation 'org.bouncycastle:bcprov-jdk15on:1.54'
+    //noinspection GradleDependency
+    api 'org.bouncycastle:bcprov-jdk15on:1.54'
 }
 
 publish {
     userOrg = 'scene'
     groupId = 'wiki.scene.cryption'
     artifactId = 'Cryption'
-    publishVersion = '0.0.2'
+    publishVersion = '0.0.7'
     desc = 'android Encryption method'
     website = 'https://gitee.com/scene/UOpenCryption'
 }
