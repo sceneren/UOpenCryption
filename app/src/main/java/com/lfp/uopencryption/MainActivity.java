@@ -109,27 +109,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String str="{\"headerInfo\":{\"areaType\":\"1\",\"osType\":1,\"token\":\"64acf01a30c2e80321a111036c32e3d0\",\"userId\":\"751185878482681856\"},\"params\":{}}";
         String encodeStr = SM2Helper.getInstance().encode(str, privateKeyStr);
 
-//        long startTime = System.currentTimeMillis();
         AbstractCoder cipher = EncryptionManager.getCipher(EncryptionManager.Model.SM2);
         String decodeStr = cipher.simpleDeCode(encodeStr, "00890C3C4389AA3B23D48B2C62277727DCA7510879C534A205FCBF529ED1BD658D");
         Log.e("加密:", encodeStr);
         Log.e("解密:", decodeStr);
+
+
+//        String plainText = et_encryption.getText().toString();
+//        if(TextUtils.isEmpty(plainText)){
+//            return;
+//        }
+//        long startTime=System.currentTimeMillis();
+//        AbstractCoder cipher=EncryptionManager.getCipher(EncryptionManager.Model.SM2);
+//        SM2KeyHelper.KeyPair keyPair= SM2KeyHelper.generateKeyPair((Sm2Kit)cipher);
 //        //生成密钥对
-//        String privateKeyHex = "";
-//        String publicKeyHex = "";
-//        Log.i("lfp", "privateKeyHex.length=" + privateKeyHex.length() + ",publicKeyHex.length=" + publicKeyHex.length());
-//        try {
+//        String privateKeyHex= keyPair.getPrivateKey();
+//        String publicKeyHex=keyPair.getPublicKey();
+//        Log.e("privateKeyHex",privateKeyHex);
+//        Log.e("publicKeyHex",publicKeyHex);
+//        Log.i("lfp","privateKeyHex.length="+privateKeyHex.length()+",publicKeyHex.length="+publicKeyHex.length());
+//        try{
 //            text_result.append("\nSM2加密: \n");
-//            String cipherText = SM2Helper.getInstance().encode(plainText, publicKeyHex);
-//            long encryEndTime = System.currentTimeMillis();
-//            Log.i("lfp", "cipherText=" + cipherText);
-//            text_result.append("密文:" + cipherText + "\n耗时：" + (encryEndTime - startTime) + "毫秒");
+//            String cipherText=cipher.simpleEnCode(plainText,publicKeyHex);
+//            long encryEndTime=System.currentTimeMillis();
+//            Log.i("lfp","cipherText="+cipherText);
+//            text_result.append("密文:"+cipherText+"\n耗时："+(encryEndTime-startTime)+"毫秒");
 //            text_result.append("\n");
-//            plainText = cipher.simpleDeCode(cipherText, privateKeyHex);
-//            long dncryEndTime = System.currentTimeMillis();
+//            plainText=cipher.simpleDeCode(cipherText,privateKeyHex);
+//            long dncryEndTime=System.currentTimeMillis();
 //            text_result.append("解密: \n");
-//            text_result.append("明文:" + plainText + "\n耗时：" + (dncryEndTime - encryEndTime) + "毫秒");
-//        } catch (Exception e) {
+//            text_result.append("明文:"+plainText+"\n耗时："+(dncryEndTime-encryEndTime)+"毫秒");
+//        }catch (Exception e){
 //            e.printStackTrace();
 //        }
     }
