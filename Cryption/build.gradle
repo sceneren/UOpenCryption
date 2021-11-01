@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
 
@@ -7,8 +8,6 @@ android {
     defaultConfig {
         minSdkVersion MIN_SDK_VERSION
         targetSdkVersion TARGET_SDK_VERSION
-        versionCode VERSION_CODE
-        versionName VERSION_NAME
     }
 
     compileOptions {
@@ -35,4 +34,21 @@ dependencies {
 
     //noinspection GradleDependency
 //    api 'org.bouncycastle:bcprov-jdk15on:1.54'
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                artifact androidSourcesJar // optional sources
+            }
+        }
+    }
 }
